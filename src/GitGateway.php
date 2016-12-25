@@ -1,11 +1,11 @@
 <?php
 namespace F3\Changelog;
 
+use F3\Changelog\Git\Commit;
+
 interface GitGateway
 {
     public function getCommitDate(string $revision): \DateTimeInterface;
-
-    public function getCommitSubject(string $revision): string;
 
     /**
      * Get list of tags
@@ -27,7 +27,7 @@ interface GitGateway
      * Get all revisions up to $revision
      *
      * @param string $revision
-     * @return string[]
+     * @return Commit[]
      */
     public function getRevisionsTo(string $revision): array;
 
@@ -36,7 +36,7 @@ interface GitGateway
      *
      * @param string $from
      * @param string $to
-     * @return string[]
+     * @return Commit[]
      */
     public function getRevisionsBetween(string $from, string $to): array;
 }

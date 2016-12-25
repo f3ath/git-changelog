@@ -35,11 +35,6 @@ final class Git implements GitGateway
         );
     }
 
-    public function getCommitSubject(string $revision): string
-    {
-        return $this->getCommitDetail($revision, 's');
-    }
-
     public function getTags(): array
     {
         return array_filter(
@@ -74,19 +69,19 @@ final class Git implements GitGateway
         return $this->getRevisions("$from..$to");
     }
 
+    /**
+     * @param string $rev_spec
+     * @return Commit[]
+     */
     private function getRevisions(string $rev_spec): array
     {
-        return array_filter(
-            array_map(
-                function (string $line) {
-                    if (preg_match('#^commit (\w+)$#', $line, $match)) {
-                        return $match[1];
-                    };
-                    return false;
-                },
-                $this->shell->exec("git log {$rev_spec}")
-            )
-        );
+        $entries = $this->shell->exec("git log --pretty=\"format:%H;%aI;%s\" {$rev_spec}");
+
+        return array_map(function (string $line) {
+            $parsedEntry = array_combine(['hash', 'date', 'subject'], explode(';', $line, 3));
+
+            return Commit::fromLogEntry($parsedEntry);
+        }, $entries);
     }
 
     private function getCommitDetail(string $revision, string $format): string

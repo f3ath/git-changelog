@@ -39,9 +39,9 @@ final class SubsequentRelease implements Release
 
     public function printChanges(Printer $printer)
     {
-        foreach ($this->git->getRevisionsBetween($this->prev_tag, $this->tag) as $revision) {
+        foreach ($this->git->getRevisionsBetween($this->prev_tag, $this->tag) as $commit) {
             $printer->printChange(
-                $this->git->getCommitSubject($revision)
+                $commit->subject()
             );
         }
     }

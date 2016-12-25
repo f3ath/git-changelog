@@ -32,9 +32,9 @@ final class FirstRelease implements Release
 
     public function printChanges(Printer $printer)
     {
-        foreach ($this->git->getRevisionsTo($this->tag) as $revision) {
+        foreach ($this->git->getRevisionsTo($this->tag) as $commit) {
             $printer->printChange(
-                $this->git->getCommitSubject($revision)
+                $commit->subject()
             );
         };
     }
