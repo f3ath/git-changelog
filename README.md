@@ -31,7 +31,6 @@ It is possible to change this behavior by placing a configuration file `.release
 Make sure you have fetched the latest state of your remote before running the generator.
 ```bash
 git fetch upstream
-git feath upstream --tags
 ```
 
 ## Contributing
