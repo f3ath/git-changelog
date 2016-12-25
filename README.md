@@ -22,11 +22,11 @@ composer require f3ath/git-changelog --dev
 ```
 
 ## Usage
-For the latest tag
+For the latest tag:
 ```bash
 vendor/bin/release-notes
 ```
-For particular tag
+For an arbitrary tag:
 ```bash
 vendor/bin/release-notes 0.0.3
 ```
