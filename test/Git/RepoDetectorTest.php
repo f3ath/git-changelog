@@ -1,7 +1,6 @@
 <?php
 namespace F3\Changelog\Git;
 
-
 class RepoDetectorTest extends \PHPUnit_Framework_TestCase
 {
     public function testGithub()

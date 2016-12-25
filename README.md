@@ -1,5 +1,17 @@
 # Changelog generator for Git and PHP
 Generates release notes in [changelog](http://keepachangelog.com/en/0.3.0/) format.
+Like this
+```bash
+[f3ath@glider git-changelog]$ ./release-notes
+
+## [0.0.1] - 2016-12-24
+- RepoDetector fix
+- Update README.md
+- composer binary
+- Initial commit
+
+[f3ath@glider git-changelog]$
+```
 
 ## Install
 With composer:
