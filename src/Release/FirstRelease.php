@@ -10,7 +10,7 @@ final class FirstRelease implements Release
     /**
      * @var string
      */
-    protected $tag;
+    private $tag;
     /**
      * @var GitGateway
      */
