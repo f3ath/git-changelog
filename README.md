@@ -2,25 +2,17 @@
 Generates release notes in [changelog](http://keepachangelog.com/en/0.3.0/) format.
 Like this:
 ```
-[f3ath@glider git-changelog]$ ./release-notes
-
 ## [0.0.1] - 2016-12-24
 - RepoDetector fix
 - Update README.md
 - composer binary
 - Initial commit
-
-[f3ath@glider git-changelog]$
 ```
 
 And like this:
 ```
-[f3ath@glider git-changelog]$ ./release-notes
-
 ## [0.0.2](https://github.com/f3ath/git-changelog/compare/0.0.1...0.0.2) - 2016-12-24
 - Added: README example
-
-[f3ath@glider git-changelog]$
 ```
 
 ## Install
