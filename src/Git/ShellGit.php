@@ -20,7 +20,7 @@ final class ShellGit implements GitGateway
      */
     private $remote;
 
-    public function __construct(string $remote = 'origin', Shell $shell, RepoDetector $detector)
+    public function __construct(string $remote, Shell $shell, RepoDetector $detector)
     {
         $this->remote = $remote;
         $this->shell = $shell;

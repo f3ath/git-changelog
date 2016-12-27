@@ -43,6 +43,7 @@ final class SubsequentRelease implements Release
         foreach ($this->git->getRevisionsBetween($this->prev_tag, $this->tag) as $revision) {
             $printer->printChange(
                 $this->git->getCommitSubject($revision)
-            );           };
+            );
+        };
     }
 }

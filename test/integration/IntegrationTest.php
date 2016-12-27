@@ -106,5 +106,4 @@ EXPECTED;
 
         $this->assertEquals($expected, $output);
     }
-
 }
