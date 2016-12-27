@@ -19,6 +19,6 @@ class ArgvInput implements Input
      */
     public function getTag()
     {
-        return (string) ($this->argv[1] ?? null);
+        return $this->argv[1] ?? null;
     }
 }

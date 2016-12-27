@@ -3,7 +3,7 @@ namespace F3\Changelog\Git;
 
 use F3\Changelog\GitGateway;
 
-final class Git implements GitGateway
+final class ShellGit implements GitGateway
 {
     /**
      * @var Shell
@@ -20,11 +20,11 @@ final class Git implements GitGateway
      */
     private $remote;
 
-    public function __construct(string $remote = 'origin', Shell $shell = null, RepoDetector $detector = null)
+    public function __construct(string $remote, Shell $shell, RepoDetector $detector)
     {
         $this->remote = $remote;
-        $this->shell = $shell ?? new Shell();
-        $this->detector = $detector ?? new RepoDetector();
+        $this->shell = $shell;
+        $this->detector = $detector;
     }
 
     public function getCommitDate(string $revision): \DateTimeInterface

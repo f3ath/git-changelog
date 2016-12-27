@@ -11,8 +11,11 @@
         verbose="true"
         syntaxCheck="true">
     <testsuites>
-        <testsuite name="Main">
-            <directory>./test</directory>
+        <testsuite name="Unit">
+            <directory>test/unit</directory>
+        </testsuite>
+        <testsuite name="Integration">
+            <directory>test/integration</directory>
         </testsuite>
     </testsuites>
     <filter>
