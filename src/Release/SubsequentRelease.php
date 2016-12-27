@@ -3,9 +3,15 @@ namespace F3\Changelog\Release;
 
 use F3\Changelog\GitGateway;
 use F3\Changelog\Printer;
+use F3\Changelog\Release;
 
-final class SubsequentRelease extends BaseRelease
+final class SubsequentRelease implements Release
 {
+    /**
+     * @var GitGateway
+     */
+    private $git;
+
     /**
      * @var string
      */
@@ -18,7 +24,7 @@ final class SubsequentRelease extends BaseRelease
 
     public function __construct(GitGateway $git, string $prev_tag, string $tag)
     {
-        parent::__construct($git);
+        $this->git = $git;
         $this->prev_tag = $prev_tag;
         $this->tag = $tag;
     }
@@ -35,7 +41,8 @@ final class SubsequentRelease extends BaseRelease
     public function printChanges(Printer $printer)
     {
         foreach ($this->git->getRevisionsBetween($this->prev_tag, $this->tag) as $revision) {
-            $this->printRevision($printer, $revision);
-        };
+            $printer->printChange(
+                $this->git->getCommitSubject($revision)
+            );           };
     }
 }

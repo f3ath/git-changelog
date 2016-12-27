@@ -19,7 +19,7 @@ class Generator
         $this->git = $git;
     }
 
-    public function getRelease(string $tag): Release
+    public function getRelease(string $tag = null): Release
     {
         $tags = $this->git->getTags();
         if (empty($tags)) {
