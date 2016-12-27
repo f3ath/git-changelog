@@ -36,5 +36,4 @@ class Generator
         }
         return new FirstRelease($this->git, $tag);
     }
-
 }

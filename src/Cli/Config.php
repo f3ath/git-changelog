@@ -3,7 +3,7 @@ namespace F3\Changelog\Cli;
 
 final class Config extends \ArrayObject
 {
-    public function __construct(array $conf =[])
+    public function __construct(array $conf = [])
     {
         parent::__construct(
             array_merge(

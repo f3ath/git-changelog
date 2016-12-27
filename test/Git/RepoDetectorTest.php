@@ -11,5 +11,4 @@ class RepoDetectorTest extends \PHPUnit_Framework_TestCase
             $detector->getDiffUrl('https://github.com/foo/bar.git', 'a', 'b')
         );
     }
-
 }

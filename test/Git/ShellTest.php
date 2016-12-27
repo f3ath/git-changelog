@@ -3,7 +3,8 @@ namespace F3\Changelog\Git;
 
 use PHPUnit\Framework\TestCase;
 
-function exec($command, &$output, &$code) {
+function exec($command, &$output, &$code)
+{
     return ShellTest::exec($command, $output, $code);
 }
 

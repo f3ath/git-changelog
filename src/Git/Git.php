@@ -66,7 +66,7 @@ final class Git implements GitGateway
 
     public function getRevisionsTo(string $revision): array
     {
-       return $this->getRevisions($revision);
+        return $this->getRevisions($revision);
     }
 
     public function getRevisionsBetween(string $from, string $to): array
