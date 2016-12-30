@@ -5,12 +5,15 @@ class RepoDetector
 {
     public function getDiffUrl(string $remote_url, string $from, $to): string
     {
-        if (preg_match('#^git@github.com:(?P<org>[\w_-]+)/(?P<repo>[\w_-]+).git$#', $remote_url, $m)
-            || preg_match('#^https://github.com/(?P<org>[\w_-]+)/(?P<repo>[\w_-]+)(.git)?$#', $remote_url, $m)
-        ) {
-            return "https://github.com/{$m['org']}/{$m['repo']}/compare/{$from}...{$to}";
-        } else {
-            throw new \UnexpectedValueException("Can not parse remote: $remote_url. ");
+        $patterns = [
+            '#^git@github.com:(?P<org>[\w_-]+)/(?P<repo>[\w_-]+).git$#',
+            '#^https://github.com/(?P<org>[\w_-]+)/(?P<repo>[\w_-]+)(.git)?$#'
+        ];
+        foreach ($patterns as $pattern) {
+            if (preg_match($pattern, $remote_url, $match)) {
+                return "https://github.com/{$match['org']}/{$match['repo']}/compare/{$from}...{$to}";
+            }
         }
+        throw new \UnexpectedValueException("Can not parse remote: $remote_url. ");
     }
 }

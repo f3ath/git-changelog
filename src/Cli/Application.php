@@ -2,9 +2,6 @@
 namespace F3\Changelog\Cli;
 
 use F3\Changelog\Generator;
-use F3\Changelog\Git\RepoDetector;
-use F3\Changelog\Git\Shell;
-use F3\Changelog\Git\ShellGit;
 
 class Application
 {
@@ -16,16 +13,6 @@ class Application
     public function __construct(Generator $generator)
     {
         $this->generator = $generator;
-    }
-
-    public static function build(): self
-    {
-        $conf = Config::fromJsonFile();
-        return new self(
-            new Generator(
-                new ShellGit($conf['remote'], new Shell(), new RepoDetector())
-            )
-        );
     }
 
     public function run(Input $input, Output $output)

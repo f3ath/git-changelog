@@ -1,7 +1,9 @@
 <?php
 namespace F3\Changelog\Git;
 
-class RepoDetectorTest extends \PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class RepoDetectorTest extends TestCase
 {
     public function urlDataProvider(): array
     {

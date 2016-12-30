@@ -1,7 +1,11 @@
 #!/usr/bin/env php
 <?php
 use F3\Changelog\Cli\{
-    Application, ArgvInput, StdOutput
+    Application, ArgvInput, Config, StdOutput
+};
+use F3\Changelog\Generator;
+use F3\Changelog\Git\{
+    RepoDetector, Shell, ShellGit
 };
 
 (function () {
@@ -22,4 +26,11 @@ use F3\Changelog\Cli\{
     die(1);
 })();
 
-Application::build()->run(new ArgvInput($argv), new StdOutput());
+(new Application(
+    new Generator(
+        new ShellGit(Config::fromJsonFile('.release-notes.json')['remote'],
+            new Shell(),
+            new RepoDetector()
+        )
+    )
+))->run(new ArgvInput($argv), new StdOutput());
