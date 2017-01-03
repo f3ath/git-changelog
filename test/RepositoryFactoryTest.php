@@ -1,7 +1,10 @@
 <?php
 namespace F3\Changelog\Git;
 
-class RepoDetectorTest extends \PHPUnit_Framework_TestCase
+use F3\Changelog\RepositoryFactory;
+use PHPUnit\Framework\TestCase;
+
+class RepositoryFactoryTest extends TestCase
 {
     public function urlDataProvider(): array
     {
@@ -27,10 +30,10 @@ class RepoDetectorTest extends \PHPUnit_Framework_TestCase
 
      * @dataProvider urlDataProvider
      */
-    public function testGithub(string $expected, string $url)
+    public function testValidUrl(string $expected, string $url)
     {
-        $detector = new RepoDetector();
-        $this->assertEquals($expected, $detector->getDiffUrl($url, 'a', 'b'));
+        $factory = new RepositoryFactory();
+        $this->assertEquals($expected, $factory->getByUrl($url)->getDiffUrl('a', 'b'));
     }
 
     /**
@@ -38,7 +41,7 @@ class RepoDetectorTest extends \PHPUnit_Framework_TestCase
      */
     public function testInvalidUrl()
     {
-        $detector = new RepoDetector();
-        $detector->getDiffUrl('https://google.com', 'a', 'b');
+        $factory = new RepositoryFactory();
+        $factory->getByUrl('https://google.com');
     }
 }

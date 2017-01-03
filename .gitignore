@@ -1,3 +1,3 @@
 /vendor/
 /composer.lock
-/.release-notes.json
+/.changelog.json
