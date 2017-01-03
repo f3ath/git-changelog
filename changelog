@@ -1,12 +1,8 @@
 #!/usr/bin/env php
 <?php
-use F3\Changelog\Cli\{
-    Application, ArgvInput, Config, StdOutput
-};
-use F3\Changelog\Generator;
-use F3\Changelog\Git\{
-    RepoDetector, Shell, ShellGit
-};
+
+use F3\Changelog\Changelog;
+use F3\Changelog\Config;
 
 (function () {
     foreach (
@@ -26,11 +22,8 @@ use F3\Changelog\Git\{
     die(1);
 })();
 
-(new Application(
-    new Generator(
-        new ShellGit(Config::fromJsonFile('.release-notes.json')['remote'],
-            new Shell(),
-            new RepoDetector()
-        )
-    )
-))->run(new ArgvInput($argv), new StdOutput());
+
+$changelog = Changelog::fromConfig(Config::fromJsonFile('.changelog.json'))
+    ->generateForVersion($argv[1] ?? null);
+
+echo "\n$changelog\n\n";
