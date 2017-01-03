@@ -33,7 +33,7 @@ vendor/bin/changelog 0.0.3
 
 ## Configuration
 By default, the remote named "origin" is used for getting details about tags, building the comparison URL, etc. 
-It is possible to change this behavior by placing a configuration file `.release-notes.json` in the current directory.
+It is possible to change this behavior by placing a configuration file `.changelog.json` in the current directory.
 
 ```json
 {
