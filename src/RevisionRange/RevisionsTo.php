@@ -1,9 +1,9 @@
 <?php
 namespace F3\Changelog\RevisionRange;
 
-use F3\Changelog\RevisionRange;
+use F3\Changelog\RevisionRangeInterface;
 
-class RevisionsTo implements RevisionRange
+class RevisionsTo implements RevisionRangeInterface
 {
     private $rev;
 

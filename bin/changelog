@@ -9,14 +9,8 @@ use F3\Changelog\RemoteFactory;
 use F3\Changelog\Shell\Shell;
 
 (function () {
-    foreach (
-        [
-            '/../../autoload.php',
-            '/../vendor/autoload.php',
-            '/vendor/autoload.php',
-        ] as $path
-    ) {
-        $autoload = __DIR__ . $path;
+    for ($depth = 0; $depth < 3; $depth++) {
+        $autoload = __DIR__ . str_repeat('/..', $depth) . '/vendor/autoload.php';
         if (file_exists($autoload)) {
             require_once $autoload;
             return;

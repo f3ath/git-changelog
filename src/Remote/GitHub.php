@@ -1,9 +1,9 @@
 <?php
 namespace F3\Changelog\Remote;
 
-use F3\Changelog\Remote;
+use F3\Changelog\RemoteInterface;
 
-class GitHub implements Remote
+class GitHub implements RemoteInterface
 {
     private $org;
     private $repo;

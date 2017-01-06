@@ -5,7 +5,7 @@ use F3\Changelog\Remote\GitHub;
 
 class RemoteFactory
 {
-    public function createByUrl(string $url): Remote
+    public function createByUrl(string $url): RemoteInterface
     {
         $patterns = [
             '#^git@github.com:(?P<org>[\w_-]+)/(?P<repo>[\w_-]+).git$#',

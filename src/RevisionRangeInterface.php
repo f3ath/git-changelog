@@ -1,7 +1,7 @@
 <?php
 namespace F3\Changelog;
 
-interface RevisionRange
+interface RevisionRangeInterface
 {
     public function getRevSpec(): string;
 }
