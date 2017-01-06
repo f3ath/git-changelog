@@ -1,0 +1,38 @@
+#!/usr/bin/env php
+<?php
+
+use F3\Changelog\Changelog;
+use F3\Changelog\Config;
+use F3\Changelog\Git\Git;
+use F3\Changelog\GitGateway;
+use F3\Changelog\RemoteFactory;
+use F3\Changelog\Shell\Shell;
+
+(function () {
+    foreach (
+        [
+            '/../../autoload.php',
+            '/../vendor/autoload.php',
+            '/vendor/autoload.php',
+        ] as $path
+    ) {
+        $autoload = __DIR__ . $path;
+        if (file_exists($autoload)) {
+            require_once $autoload;
+            return;
+        }
+    }
+    fwrite(STDERR, 'Composer autoload not found.' . PHP_EOL);
+    die(1);
+})();
+
+$changelog = new Changelog(
+    new GitGateway(
+        new Git(
+          new Shell()
+        ),
+        Config::fromJsonFile('.changelog.json')->getRemoteName(),
+        new RemoteFactory()
+    )
+);
+printf("\n%s\n\n", $changelog->generateForVersion($argv[1] ?? null));

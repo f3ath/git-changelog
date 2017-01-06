@@ -1,0 +1,5 @@
+{
+  "remote": "upstream",
+  "git": "MyGit",
+  "repo_factory": "MyRepoFactory"
+}
