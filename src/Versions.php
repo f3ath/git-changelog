@@ -29,7 +29,7 @@ final class Versions
                     try {
                         $parser->normalize($tag);
                         return true;
-                    } catch (\InvalidArgumentException $e) {
+                    } catch (\UnexpectedValueException $e) {
                         return false;
                     }
                 }
