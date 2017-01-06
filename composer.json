@@ -12,7 +12,7 @@
     }
   ],
   "bin": [
-    "release-notes"
+    "changelog"
   ],
   "require": {
     "php": ">=7.0",
