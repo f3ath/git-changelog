@@ -9,7 +9,7 @@ use F3\Changelog\RemoteFactory;
 use F3\Changelog\Shell\Shell;
 
 (function () {
-    for ($depth = 0; $depth < 3; $depth++) {
+    for ($depth = 0; $depth < 5; $depth++) {
         $autoload = __DIR__ . str_repeat('/..', $depth) . '/vendor/autoload.php';
         if (file_exists($autoload)) {
             require_once $autoload;
