@@ -1,7 +1,7 @@
 <?php
 namespace F3\Changelog\Git;
 
-use F3\Changelog\RevisionRange;
+use F3\Changelog\RevisionRangeInterface;
 use F3\Changelog\Shell\Shell;
 
 class Git
@@ -37,10 +37,10 @@ class Git
     }
 
     /**
-     * @param RevisionRange $range
+     * @param RevisionRangeInterface $range
      * @return Commit[]
      */
-    public function getCommitsInRange(RevisionRange $range): array
+    public function getCommitsInRange(RevisionRangeInterface $range): array
     {
         return array_map(
             function (string $log_entry) {

@@ -1,9 +1,9 @@
 <?php
 namespace F3\Changelog\RevisionRange;
 
-use F3\Changelog\RevisionRange;
+use F3\Changelog\RevisionRangeInterface;
 
-class RevisionsBetween implements RevisionRange
+class RevisionsBetween implements RevisionRangeInterface
 {
     private $from;
     private $to;
