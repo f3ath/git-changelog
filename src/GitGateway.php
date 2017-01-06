@@ -23,7 +23,7 @@ class GitGateway
      */
     private $remote_factory;
 
-    public function __construct(Git $git, $remote, RemoteFactory $remote_factory)
+    public function __construct(Git $git, string $remote, RemoteFactory $remote_factory)
     {
         $this->git = $git;
         $this->remote = $remote;
