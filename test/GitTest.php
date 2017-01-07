@@ -83,5 +83,4 @@ class GitTest extends TestCase
         $this->assertEquals('2017-01-06', $c1->getDate()->format('Y-m-d'));
         $this->assertEquals('2017-01-07', $c2->getDate()->format('Y-m-d'));
     }
-
 }
